@@ -4,8 +4,8 @@ namespace BetterRage
 {
     public class MainSetting : Plugin
     {
-        public override string getName => "BetterRage";
-        private SetEvent SetEvent;
+        public override string getName => nameof(BetterRage);
+        public SetEvent SetEvent { get; set; }
 
         public override void OnEnable()
         {
