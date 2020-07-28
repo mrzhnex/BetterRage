@@ -1,12 +1,10 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace BetterRage
 {
-    class Global
+    public static class Global
     {
-        public static List<int> lookerTo096 = new List<int>();
-        public static float saveDistance = 1.25f;
-        public static GameObject scp096obj;
+        public static List<int> Targets = new List<int>();
+        public static float SaveDistance = 1.25f;
     }
 }

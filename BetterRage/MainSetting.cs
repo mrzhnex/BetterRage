@@ -1,37 +1,31 @@
-﻿using EXILED;
+﻿using Exiled.API.Features;
 
 namespace BetterRage
 {
-    public class MainSetting : Plugin
+    public class MainSetting : Plugin<Config>
     {
-        public override string getName => nameof(BetterRage);
+        public override string Name => nameof(BetterRage);
         public SetEvent SetEvent { get; set; }
 
-        public override void OnEnable()
+        public override void OnEnabled()
         {
             SetEvent = new SetEvent();
-            Events.WaitingForPlayersEvent += SetEvent.OnWaitingForPlayers;
-            Events.Scp096EnrageEvent += SetEvent.OnScp096Enrage;
-            Events.RoundEndEvent += SetEvent.OnRoundEnd;
-            Events.PlayerDeathEvent += SetEvent.OnPlayerDie;
-            Events.PlayerHurtEvent += SetEvent.OnPlayerHurt;
-            Events.PlayerSpawnEvent += SetEvent.OnSpawn;
-            Events.Scp096CalmEvent += SetEvent.OnScp096Calm;
-            Log.Info(getName + " on");
+            Exiled.Events.Handlers.Server.WaitingForPlayers += SetEvent.OnWaitingForPlayers;
+            Exiled.Events.Handlers.Player.ChangingRole += SetEvent.OnChangingRole;
+            Exiled.Events.Handlers.Player.Hurting += SetEvent.OnHurting;
+            Exiled.Events.Handlers.Scp096.Enraging += SetEvent.OnEnraging;
+            Exiled.Events.Handlers.Scp096.CalmingDown += SetEvent.OnCalmingDown;
+            Log.Info(Name + " on");
         }
 
-        public override void OnDisable()
+        public override void OnDisabled()
         {
-            Events.WaitingForPlayersEvent -= SetEvent.OnWaitingForPlayers;
-            Events.Scp096EnrageEvent -= SetEvent.OnScp096Enrage;
-            Events.RoundEndEvent -= SetEvent.OnRoundEnd;
-            Events.PlayerDeathEvent -= SetEvent.OnPlayerDie;
-            Events.PlayerHurtEvent -= SetEvent.OnPlayerHurt;
-            Events.PlayerSpawnEvent -= SetEvent.OnSpawn;
-            Events.Scp096CalmEvent -= SetEvent.OnScp096Calm;
-            Log.Info(getName + " off");
+            Exiled.Events.Handlers.Server.WaitingForPlayers -= SetEvent.OnWaitingForPlayers;
+            Exiled.Events.Handlers.Player.ChangingRole -= SetEvent.OnChangingRole;
+            Exiled.Events.Handlers.Player.Hurting -= SetEvent.OnHurting;
+            Exiled.Events.Handlers.Scp096.Enraging -= SetEvent.OnEnraging;
+            Exiled.Events.Handlers.Scp096.CalmingDown -= SetEvent.OnCalmingDown;
+            Log.Info(Name + " off");
         }
-
-        public override void OnReload() { }
     }
 }

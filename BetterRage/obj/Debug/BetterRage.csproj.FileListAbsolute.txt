@@ -266,8 +266,6 @@ E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.InputLegacyModule.
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.UnityWebRequestAudioModule.dll
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.IMGUIModule.dll
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.ScreenCaptureModule.dll
-E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\0Harmony.dll
-E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\YamlDotNet.dll
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.UNETModule.dll
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.DSPGraphModule.dll
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.AndroidJNIModule.dll
@@ -306,7 +304,6 @@ E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.SpriteShapeModule.
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.UIElementsModule.dll
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.VehiclesModule.dll
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.WindModule.dll
-E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.ARModule.dll
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.XRModule.dll
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.InputModule.dll
 E:\SCP SL plugins\BetterRage\BetterRage\obj\Debug\BetterRage.csprojAssemblyReference.cache
@@ -314,3 +311,20 @@ E:\SCP SL plugins\BetterRage\BetterRage\obj\Debug\BetterRage.csproj.CoreCompileI
 E:\SCP SL plugins\BetterRage\BetterRage\obj\Debug\BetterRage.csproj.CopyComplete
 E:\SCP SL plugins\BetterRage\BetterRage\obj\Debug\BetterRage.dll
 E:\SCP SL plugins\BetterRage\BetterRage\obj\Debug\BetterRage.pdb
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\Assembly-CSharp.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\Exiled.API.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\Exiled.Events.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\Mirror.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.CoreModule.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\DissonanceVoip.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.UI.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\Unity.TextMeshPro.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\Facepunch.Steamworks.Win64.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\BouncyCastle.Crypto.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\Mono.Nat.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\CommandSystem.Core.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\CloudflareSolverRe.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\zxing.unity.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\System.Buffers.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\System.Memory.dll

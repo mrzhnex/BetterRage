@@ -1,5 +1,4 @@
-﻿using EXILED;
-using EXILED.Extensions;
+﻿using Exiled.Events.EventArgs;
 using System.Collections.Generic;
 
 namespace BetterRage
@@ -8,51 +7,39 @@ namespace BetterRage
     {
         public void OnWaitingForPlayers()
         {
-            Global.lookerTo096 = new List<int>();
+            Global.Targets = new List<int>();
         }
 
-        public void OnSpawn(PlayerSpawnEvent ev)
+        internal void OnHurting(HurtingEventArgs ev)
         {
-            if (Global.lookerTo096.Contains(ev.Player.GetPlayerId()))
-                Global.lookerTo096.Remove(ev.Player.GetPlayerId());
-            if (ev.Player.GetRole() == RoleType.Scp096)
-            {
-                Global.scp096obj = ev.Player.gameObject;
-                if (Global.scp096obj.GetComponent<BroadcastSCP>())
-                    UnityEngine.Object.Destroy(Global.scp096obj.GetComponent<BroadcastSCP>());
-                Global.scp096obj.AddComponent<BroadcastSCP>();
-            }
-        }
-
-        public void OnScp096Calm(ref Scp096CalmEvent ev)
-        {
-            if (Global.lookerTo096.Count > 0)
-                ev.Allow = false;
-        }
-
-        public void OnScp096Enrage(ref Scp096EnrageEvent ev)
-        {
-            if (Global.lookerTo096.Count == 0)
-                ev.Allow = false;
-        }
-
-        public void OnRoundEnd()
-        {
-            Global.lookerTo096 = new List<int>();
-        }
-
-        public void OnPlayerDie(ref PlayerDeathEvent ev)
-        {
-            if (Global.lookerTo096.Contains(ev.Player.GetPlayerId()))
-                Global.lookerTo096.Remove(ev.Player.GetPlayerId());
-            if (ev.Player.gameObject.GetComponent<BroadcastSCP>())
-                UnityEngine.Object.Destroy(ev.Player.gameObject.GetComponent<BroadcastSCP>());
-        }
-
-        public void OnPlayerHurt(ref PlayerHurtEvent ev)
-        {
-            if (ev.Attacker.GetRole() == RoleType.Scp096 && !Global.lookerTo096.Contains(ev.Player.GetPlayerId()))
+            if (ev.Attacker != null && ev.Attacker.Role == RoleType.Scp096 && !Global.Targets.Contains(ev.Target.Id))
                 ev.Amount = 0.0f;
+        }
+
+        internal void OnEnraging(EnragingEventArgs ev)
+        {
+            if (Global.Targets.Count == 0)
+                ev.IsAllowed = false;
+        }
+
+        internal void OnCalmingDown(CalmingDownEventArgs ev)
+        {
+            if (Global.Targets.Count > 0)
+                ev.IsAllowed = false;
+        }
+
+        internal void OnChangingRole(ChangingRoleEventArgs ev)
+        {
+            if (Global.Targets.Contains(ev.Player.Id))
+                Global.Targets.Remove(ev.Player.Id);
+            if (ev.Player.GameObject.GetComponent<ScpBehaviour>())
+            {
+                UnityEngine.Object.Destroy(ev.Player.GameObject.GetComponent<ScpBehaviour>());
+            }
+            if (ev.Player.Role == RoleType.Scp096)
+            {
+                ev.Player.GameObject.AddComponent<ScpBehaviour>();
+            }
         }
     }
 }
