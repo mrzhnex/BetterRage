@@ -15,6 +15,7 @@ namespace BetterRage
             Exiled.Events.Handlers.Player.Hurting += SetEvent.OnHurting;
             Exiled.Events.Handlers.Scp096.Enraging += SetEvent.OnEnraging;
             Exiled.Events.Handlers.Scp096.CalmingDown += SetEvent.OnCalmingDown;
+            Exiled.Events.Handlers.Player.Died += SetEvent.OnDied;
             Log.Info(Name + " on");
         }
 
@@ -25,6 +26,7 @@ namespace BetterRage
             Exiled.Events.Handlers.Player.Hurting -= SetEvent.OnHurting;
             Exiled.Events.Handlers.Scp096.Enraging -= SetEvent.OnEnraging;
             Exiled.Events.Handlers.Scp096.CalmingDown -= SetEvent.OnCalmingDown;
+            Exiled.Events.Handlers.Player.Died -= SetEvent.OnDied;
             Log.Info(Name + " off");
         }
     }

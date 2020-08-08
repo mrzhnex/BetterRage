@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using RemoteAdmin;
 using Exiled.API.Features;
+using PlayableScps;
 
 namespace BetterRage
 {
@@ -9,7 +10,7 @@ namespace BetterRage
         private readonly float TimeIsUp = 0.1f;
         private float Timer = 0.0f;
         private Player Scp;
-
+        private int LastCount = Global.Targets.Count;
         public void Start()
         {
             Scp = Player.Get(gameObject);
@@ -34,15 +35,20 @@ namespace BetterRage
                         player.Broadcast(15, "Вы увидели лицо SCP-096", Broadcast.BroadcastFlags.Normal);
                     }
                 }
-                if (Global.Targets.Count > 0)
+                if (Global.Targets.Count == 0)
+                {
+                    if (LastCount != Global.Targets.Count)
+                    {
+                        LastCount = Global.Targets.Count;
+                        (Scp.ReferenceHub.scpsController.CurrentScp as Scp096).EndEnrage();
+                        Scp.ReferenceHub.serverRoles.BypassMode = false;
+                    }
+                }
+                else
                 {
                     Scp.ReferenceHub.serverRoles.BypassMode = true;
                     Scp.ClearBroadcasts();
                     Scp.Broadcast(2, "Ближайшая цель: " + GetClosedPlayerDistance()[0] + " расстояние: " + GetClosedPlayerDistance()[1], Broadcast.BroadcastFlags.Normal);
-                }
-                else
-                {
-                    Scp.ReferenceHub.serverRoles.BypassMode = false;
                 }
             }
         }
@@ -65,23 +71,24 @@ namespace BetterRage
 
         private bool LookFace096(Player player)
         {
-            try
+            if (Vector3.Distance(player.Position, transform.position) > Global.SaveDistance)
             {
-                if (Vector3.Angle(player.PlayerCamera.forward, (gameObject.transform.position - player.GameObject.transform.position).normalized) <= 50f 
-                    && Vector3.Angle(Scp.PlayerCamera.forward, (player.GameObject.transform.position - gameObject.transform.position).normalized) <= 50f 
-                    && !Physics.Linecast(player.Position, gameObject.transform.position, 1207976449)
-                    && Physics.Raycast(player.PlayerCamera.position, player.PlayerCamera.forward, out RaycastHit hit, 20.0f)
-                    && (Vector3.Distance(player.GameObject.transform.position, gameObject.transform.position) > Global.SaveDistance))
+                if (Vector3.Angle(player.PlayerCamera.forward, (transform.position - player.Position).normalized) <= 50f)
                 {
-                    if (hit.transform.GetComponent<QueryProcessor>() != null && hit.transform.GetComponent<QueryProcessor>().PlayerId == gameObject.GetComponent<QueryProcessor>().PlayerId)
+                    if (Vector3.Angle(Scp.PlayerCamera.forward, (player.Position - gameObject.transform.position).normalized) <= 50f)
                     {
-                        return true;
+                        if (!Physics.Linecast(player.Position, transform.position, 1207976449))
+                        {
+                            if (Physics.Raycast(player.PlayerCamera.position, player.PlayerCamera.forward, out RaycastHit hit, 20.0f))
+                            {
+                                if (hit.transform.GetComponent<QueryProcessor>() != null && hit.transform.GetComponent<QueryProcessor>().PlayerId == Scp.Id)
+                                {
+                                    return true;
+                                }
+                            }
+                        }
                     }
                 }
-            }
-            catch (System.NullReferenceException)
-            {
-
             }
             return false;
         }

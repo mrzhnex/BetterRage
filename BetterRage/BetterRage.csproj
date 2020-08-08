@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,7 +35,7 @@
   <ItemGroup>
     <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\.Smod MP2.PreAlpha &amp; Exiled\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\.Smod MP2.PreAlpha &amp; Exiled\EnrageAssembly\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Exiled.API">
       <HintPath>..\..\.Smod MP2.PreAlpha &amp; Exiled\EXILED\Plugins\dependencies\Exiled.API.dll</HintPath>
