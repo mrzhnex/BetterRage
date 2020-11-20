@@ -312,9 +312,9 @@ E:\SCP SL plugins\BetterRage\BetterRage\obj\Debug\BetterRage.pdb
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\Assembly-CSharp.dll
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\Exiled.API.dll
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\Exiled.Events.dll
-E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\Mirror.dll
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.CoreModule.dll
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\UnityEngine.dll
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\System.Buffers.dll
 E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\System.Memory.dll
+E:\SCP SL plugins\BetterRage\BetterRage\bin\Debug\Exiled.Permissions.dll
 E:\SCP SL plugins\BetterRage\BetterRage\obj\Debug\BetterRage.csprojAssemblyReference.cache

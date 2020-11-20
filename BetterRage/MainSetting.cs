@@ -13,9 +13,10 @@ namespace BetterRage
             Exiled.Events.Handlers.Server.WaitingForPlayers += SetEvent.OnWaitingForPlayers;
             Exiled.Events.Handlers.Player.ChangingRole += SetEvent.OnChangingRole;
             Exiled.Events.Handlers.Player.Hurting += SetEvent.OnHurting;
-            Exiled.Events.Handlers.Scp096.Enraging += SetEvent.OnEnraging;
             Exiled.Events.Handlers.Scp096.CalmingDown += SetEvent.OnCalmingDown;
             Exiled.Events.Handlers.Player.Died += SetEvent.OnDied;
+            Exiled.Events.Handlers.Scp096.AddingTarget += SetEvent.OnAddingTarget;
+            Exiled.Events.Handlers.Server.SendingConsoleCommand += SetEvent.OnSendingConsoleCommand;
             Log.Info(Name + " on");
         }
 
@@ -24,9 +25,10 @@ namespace BetterRage
             Exiled.Events.Handlers.Server.WaitingForPlayers -= SetEvent.OnWaitingForPlayers;
             Exiled.Events.Handlers.Player.ChangingRole -= SetEvent.OnChangingRole;
             Exiled.Events.Handlers.Player.Hurting -= SetEvent.OnHurting;
-            Exiled.Events.Handlers.Scp096.Enraging -= SetEvent.OnEnraging;
             Exiled.Events.Handlers.Scp096.CalmingDown -= SetEvent.OnCalmingDown;
             Exiled.Events.Handlers.Player.Died -= SetEvent.OnDied;
+            Exiled.Events.Handlers.Scp096.AddingTarget -= SetEvent.OnAddingTarget;
+            Exiled.Events.Handlers.Server.SendingConsoleCommand -= SetEvent.OnSendingConsoleCommand;
             Log.Info(Name + " off");
         }
     }
